@@ -1,0 +1,44 @@
+CREATE TRIGGER `booksort1` AFTER UPDATE ON `book`
+ FOR EACH ROW BEGIN
+  Delete from bookfrag1;
+  Insert into bookfrag1
+	Select * from book where author = 'Silerchatz and Korth';
+  Delete from bookfrag2;
+  Insert into bookfrag2
+	Select * from book where author = 'William Stallings';
+  END
+  
+  
+  
+  CREATE TRIGGER `booksort1` AFTER UPDATE ON `book`
+ FOR EACH ROW BEGIN
+  Delete from bookfrag1;
+  Insert into bookfrag1
+	Select * from book where author = 'Silerchatz and Korth';
+  Delete from bookfrag2;
+  Insert into bookfrag2
+	Select * from book where author = 'William Stallings';
+  END
+  
+
+
+CREATE TRIGGER `usersort` AFTER INSERT ON `user`
+ FOR EACH ROW BEGIN
+  Delete from userfrag1;
+  Insert into userfrag1
+	Select * from user where balance < 100;
+  Delete from userfrag2;
+  Insert into userfrag2
+	Select * from user where balance > 1000;
+  END
+
+
+CREATE TRIGGER `usersort1` AFTER UPDATE ON `user`
+ FOR EACH ROW BEGIN
+  Delete from userfrag1;
+  Insert into userfrag1
+	Select * from user where balance < 100;
+  Delete from userfrag2;
+  Insert into userfrag2
+	Select * from user where balance > 1000;
+  END
